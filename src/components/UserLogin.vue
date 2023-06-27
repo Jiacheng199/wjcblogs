@@ -8,21 +8,50 @@
   </template>
   
   <script>
-  //eslint-disable-next-line
   import axios from 'axios'
-
+  
   export default {
-    data() {
-      return {
-        email: '',
-        password: ''
-      }
-    },
+    // ...
     methods: {
-      submitForm() {
-        // 在这里处理表单提交
+      async submitForm() {
+        try {
+           const response = await axios.post('http://localhost:3000/userlogin', {
+            email: this.email,
+            password: this.password
+          })
+  
+          console.log(response.data)
+          // TODO: 处理响应数据，如设置认证状态或者跳转到新页面
+        } catch (error) {
+          console.error(error)
+          // TODO: 处理错误，如显示错误信息
+        }
       }
     }
   }
   </script>
+  
+  <style scoped>
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  </style>
   
