@@ -23,11 +23,10 @@ connection.connect(function(err) {
     console.error('Error connecting: ' + err.stack);
     return;
   }
-
   console.log('Connected to the database.');
 });
 
-// 获取所有用户
+// get all users
 app.get('/users', (req, res) => {
   connection.query('SELECT * FROM Users', function (error, results, fields) {
     if (error) {
@@ -37,7 +36,7 @@ app.get('/users', (req, res) => {
   });
 });
 
-// 创建新用户
+// create a new user 
 app.post('/users', (req, res) => {
   const newUser = req.body;
 
