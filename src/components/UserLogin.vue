@@ -8,6 +8,9 @@
   </template>
   
   <script>
+  //eslint-disable-next-line
+  import axios from 'axios'
+
   export default {
     data() {
       return {
