@@ -27,20 +27,12 @@ connection.connect(function(err) {
   console.log('Connected to the database.');
 });
 
-// get all users
-app.get('/users', (req, res) => {
-  connection.query('SELECT * FROM Users', function (error, results, fields) {
-    if (error) {
-      return res.status(500).json({ error });
-    }
-    res.json(results);
-  });
-});
+
 
 // create a new user 
-app.post('/users', (req, res) => {
+app.post('/userRegister', (req, res) => {
   const newUser = req.body;
-
+  console.log(newUser);
   connection.query('INSERT INTO Users SET ?', newUser, function (error, results) {
     if (error) {
       return res.status(500).json({ error });
