@@ -16,10 +16,27 @@ export default {
 
 <style scoped>
 nav {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
-    background-color: #eee;
-}    
+    max-width: 100px; 
+    width: 100%;  
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    margin: 0 40px;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+
 </style>
 
