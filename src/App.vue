@@ -29,7 +29,7 @@ export default {
 @font-face {
     font-family: 'Tensor Sans';
     src: url('../public/fonts/TenorSans-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: bolder;
     font-style: normal;
 }
 </style>
