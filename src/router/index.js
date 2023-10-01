@@ -2,13 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import UserLogin from '@/components/UserLogin'
 import UserRegister from '@/components/UserRegister'
-
+import HomePage from '@/components/HomePage'
 Vue.use(Router)
 
 const routes = [
     {
         path: '/',
-        redirect: '/login'
+        name: 'HelloWorld',
+        component: HomePage, 
     },
     {
         path: '/login',
