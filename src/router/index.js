@@ -3,12 +3,13 @@ import Router from 'vue-router'
 import UserLogin from '@/components/UserLogin'
 import UserRegister from '@/components/UserRegister'
 import HomePage from '@/components/HomePage'
+
 Vue.use(Router)
 
 const routes = [
     {
         path: '/',
-        name: 'HelloWorld',
+        name: 'HomePage',
         component: HomePage, 
     },
     {
