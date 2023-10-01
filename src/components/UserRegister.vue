@@ -34,30 +34,6 @@
   </script>
   
   <style scoped>
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: 0 auto;
-  }
-  
-  input {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #eee;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #ddd;
-  }
+
   </style>
   
