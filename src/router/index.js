@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import UserLogin from '@/components/UserLogin'
-import UserRegister from '@/components/UserRegister'
 import HomePage from '@/components/HomePage'
+import AboutMe from '@/components/AboutMe'
+import PortfolioPage from '@/components/PortfolioPage'
+import MyBlogs  from '@/components/MyBlogs'
 
 Vue.use(Router)
 
@@ -13,15 +14,21 @@ const routes = [
         component: HomePage, 
     },
     {
-        path: '/login',
-        name: 'Login',
-        component: UserLogin,
+        path: '/AboutMe',
+        name: 'AboutMe',
+        component: AboutMe,
     },
     {
-        path: '/register',
-        name: 'Register',
-        component: UserRegister
-    }
+        path: '/PortfolioPage',
+        name: 'PortfolioPage',
+        component: PortfolioPage,
+    },
+    {
+        path: '/MyBlogs',
+        name: 'MyBlogs',
+        component: MyBlogs,
+    },
+
 ]
 
 export default new Router({

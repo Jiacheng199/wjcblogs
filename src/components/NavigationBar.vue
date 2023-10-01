@@ -2,8 +2,9 @@
 <template>
     <nav>
         <router-link to="/">Home</router-link>
-        <router-link to="/register">Register</router-link>
-        <router-link to="/login">Login</router-link>
+        <router-link to="/AboutMe">AboutMe</router-link>
+        <router-link to="/PortfolioPage">Portfolio</router-link>
+        <router-link to="/MyBlogs">MyBlogs</router-link>
     </nav>
 </template>
 
