@@ -21,18 +21,10 @@ nav {
     justify-content: center;
 }
 
-.nav-links {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    max-width: 100px; 
-    width: 100%;  
-}
-
 nav a {
     text-decoration: none;
     color: inherit;
-    margin: 0 40px;
+    margin: 0 60px;
     font-size: 35px;
     font-weight: 500;
 }
