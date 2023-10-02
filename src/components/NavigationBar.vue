@@ -29,6 +29,13 @@ nav a {
     font-weight: 500;
 }
 
+nav :hover {
+    color: #28887b;
+    font-weight: 600;
+
+}
+
+
 
 </style>
 

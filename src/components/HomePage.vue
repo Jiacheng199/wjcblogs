@@ -12,6 +12,7 @@
                 <p>I'm passionate about building software that improves people's lives.</p>
                 <p>I'm currently working at <a href="https://www.etsy.com/" target="_blank">Etsy</a>.</p>
             </div>
+            <button @click="emailMe">Email Me !</button>
         </div>
     </div>
 
@@ -20,6 +21,11 @@
 <script>
 export default {
     name: 'HomePage',
+    methods: {
+        emailMe() {
+            window.open('mailto:jiacheng.develop@gmail.com');
+        }
+    }
 }
 </script>
 
@@ -38,9 +44,9 @@ export default {
 }
   
   .image-container {
-    width: 50%;  
-    max-width: 50%; 
-    max-height: 50%;  
+    width: 60%;  
+    max-width: 60%; 
+    max-height: 60%;  
   }
   
   .image-container img {
@@ -49,4 +55,35 @@ export default {
     display: block;  
     object-fit: cover;  
   }
+
+  .self-introduction {
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  h1{
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 100px;
+    padding: 23px 40px;
+    font-size: 29px;
+    font-weight: 450;
+    color: #ffffff;
+    background-color: #81905F; /* 抹茶色 */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #11b663;  /* 深一点的抹茶色 */
+}
 </style>
