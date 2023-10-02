@@ -6,7 +6,9 @@
             </div>
         </div>
         <div class="name">
-            <h1>Hi, I'm <span style="color: #00bfa5;">Jiacheng Wang</span></h1>
+            <h1 class="name-display">
+                <p class="name-display-p">Hi, I'm <span style="color: #00bfa5;">Jiacheng Wang.</span></p>
+                </h1>
             <div class="self-introduction">
                 <p>I'm a software engineer based in Melbourne City.</p>
                 <p>I'm passionate about building software that improves people's lives.</p>
@@ -19,19 +21,22 @@
 </template>
 
 <script>
+// import anime from 'animejs';
+
 export default {
     name: 'HomePage',
     methods: {
         emailMe() {
             window.open('mailto:jiacheng.develop@gmail.com');
-        }
-    }
+        },
+    },
 }
+
 </script>
 
 <style scoped>.container {
     display: flex;
-    height: 100vh;
+    height: 90vh;
   }
   
   .pic,
@@ -64,26 +69,40 @@ export default {
     text-align: center;
   }
 
-  h1{
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 1.5;
-    text-align: center;
-  }
-
   button {
     margin-top: 100px;
     padding: 23px 40px;
     font-size: 29px;
     font-weight: 450;
-    color: #ffffff;
-    background-color: #81905F; /* 抹茶色 */
+    color: #e7e2e2;
+    background-color: #81905F; 
     border: none;
     border-radius: 30px;
     cursor: pointer;
-}
+  }
 
-button:hover {
-    background-color: #11b663;  /* 深一点的抹茶色 */
-}
+  button:hover {
+    background-color: #0aae5c; 
+  }
+  
+  .name-display-p {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    animation: 
+        typing 5s,
+        cursor .4s step-end infinite alternate;
+  }
+  
+    @keyframes cursor {
+        50% { border-right: 2px solid #00bfa5; }
+    }
+
+  @keyframes typing {
+    from { width: 0 }
+  }
+
+
+
 </style>
