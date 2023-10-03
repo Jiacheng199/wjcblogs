@@ -11,8 +11,9 @@
                 </h1>
             <div class="self-introduction">
                 <p>I'm a software engineer based in Melbourne City.</p>
-                <p>I'm passionate about building software that improves people's lives.</p>
-                <p>I'm currently working at <a href="https://www.etsy.com/" target="_blank">Etsy</a>.</p>
+                <p>I'm passionate about making crazy and inspiring ideas come to life through programming!</p>
+                <p>Currently working on: <a style="color: #00bfa5;">Melbourne TreeHole</a> 
+                  and <a style="color: #00bfa5;">Exchange Everything</a>.</p>
             </div>
             <button @click="emailMe">Email Me !</button>
         </div>
@@ -95,9 +96,9 @@ export default {
         cursor .4s step-end infinite alternate;
   }
   
-    @keyframes cursor {
-        50% { border-right: 2px solid #00bfa5; }
-    }
+  @keyframes cursor {
+      50% { border-right: 2px solid #00bfa5; }
+  }
 
   @keyframes typing {
     from { width: 0 }
