@@ -1,4 +1,7 @@
 <template>
+
+<div class="outer-container">
+    <!-- Background, expertise and self-photo -->
     <div class="about-container">
         <div class="profile-img">
             <img src="https://avatars.githubusercontent.com/u/20380701?v=4" alt="profile-image">
@@ -41,6 +44,13 @@
             </div>
         </div>
     </div>
+    <!-- Download resume here -->
+    <div class="download-resume">
+        <a href="resume/cv.pdf" download>Download my resume here!</a>
+    </div>
+
+</div>
+
 </template>
 
 <script>
@@ -55,11 +65,16 @@
 </script>
 
 <style scoped>
+    .outer-container {
+        display: flex;
+        flex-direction: column; 
+        margin-bottom: 50px; 
+    }
     .about-container {
         display: flex;
         margin-top: 4%;
         width: 100%;
-        height: 100%;
+        height: 80%;
     }
 
     .profile-img {
@@ -139,4 +154,30 @@
     .icons a:hover {
         color: #00bfa5; 
     }
+
+    .download-resume a {
+    font-size: 2.6rem;
+    text-decoration: none; 
+    color: #E15723;
+    position: relative;
+    text-shadow:
+        0 0 5px #00bfa5,
+        0 0 10px #00bfa5,
+        0 0 15px #00bfa5,
+        0 0 20px #00bfa5;
+    }
+
+    .download-resume {
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        margin-top: 5%; 
+        width: 100%;
+    }
+
+    .download-resume a:hover {
+        color: #fff;
+    }
+
+
 </style>
