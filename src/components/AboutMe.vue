@@ -4,7 +4,7 @@
     <!-- Background, expertise and self-photo -->
     <div class="about-container">
         <div class="profile-img">
-            <img src="https://avatars.githubusercontent.com/u/20380701?v=4" alt="profile-image">
+            <img src="self-pic/self-ai-pic.png" alt="profile-image">
             <div class="icons">
                 <a href="https://github.com/jiacheng199" target="_blank">
                     <i class="fab fa-github"></i>
