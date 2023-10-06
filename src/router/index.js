@@ -4,7 +4,7 @@ import HomePage from '@/components/HomePage'
 import AboutMe from '@/components/AboutMe'
 import PortfolioPage from '@/components/PortfolioPage'
 import MyBlogs  from '@/components/MyBlogs'
-
+import BlogDetail from '@/components/BlogDetail'
 Vue.use(Router)
 
 const routes = [
@@ -28,6 +28,11 @@ const routes = [
         name: 'MyBlogs',
         component: MyBlogs,
     },
+    {
+        path: '/MyBlogs/:id',
+        name: 'BlogDetail',
+        component: BlogDetail,
+    }
 
 ]
 
