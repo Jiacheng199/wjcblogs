@@ -2,7 +2,9 @@
     <div class="portfolio-container">
         <div class="projects">
             <div v-for="project in projects" :key="project.id" class="project-card">
-                <img :src="project.imageURL" :alt="project.title" class="project-image">
+                <a :href="project.projectURL" target="_blank" rel="noopener noreferrer"> 
+                    <img :src="project.imageURL" :alt="project.title" class="project-image">
+                </a>
                 <h3>{{ project.title }}</h3>
                 <p>{{ project.description }}</p>
             </div>
@@ -19,20 +21,30 @@ export default {
                 {
                     id: 1,
                     title: 'Find your study mate',
-                    description: 'This is a description for Project 1.',
-                    imageURL: 'https://via.placeholder.com/300'  // Placeholder image
+                    description: 'Why study alone when you can study with your mate?',
+                    imageURL: 'portfolio/studymate.png',  // Placeholder image
+                    projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
                 },
                 {
                     id: 2,
                     title: 'TreeHole',
-                    description: 'This is a description for Project 2.',
-                    imageURL: 'https://via.placeholder.com/300'  // Placeholder image
+                    description: 'No registration, anonymous, tell or write your secrets',
+                    imageURL: 'portfolio/treehole.png',  // Placeholder image
+                    projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
                 },
                 {
                     id: 3,
                     title: 'PetMeNow',
-                    description: 'This is a description for Project 3.',
-                    imageURL: 'https://via.placeholder.com/300'  // Placeholder image
+                    description: 'When you are on a business trip or unable to take care of your pet, let PetMeNow help you find a trustworthy temporary owner.',
+                    imageURL: 'portfolio/petmenow.png',  // Placeholder image
+                    projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
+                },
+                {
+                    id: 4,
+                    title: 'Exchange Everything',
+                    description:'Exchange Everything is a platform for people to exchange their unwanted items with others.',
+                    imageURL: 'portfolio/exchangeeverything.png',  // Placeholder image
+                    projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
                 }
             ]
         }
@@ -49,6 +61,7 @@ export default {
     }
 
     .projects {
+        margin-top: 10%;
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
@@ -65,7 +78,6 @@ export default {
 
     .project-card:hover {
         transform: scale(1.05);
-
     }
 
     .project-image {
