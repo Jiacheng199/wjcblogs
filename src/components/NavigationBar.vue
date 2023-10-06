@@ -32,7 +32,7 @@ nav a {
 nav :hover {
     color: #28887b;
     font-weight: 600;
-
+    transform: scale(1.1);
 }
 
 
