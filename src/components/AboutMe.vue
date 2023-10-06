@@ -22,8 +22,8 @@
             <div class="background">
                 <h2>Background</h2>
                     <p>University of Melbourne (UniMelb), [2022-2023]</p>
-                    <p>Master of Information Technology</p>
-                    <p>Specialization in Artificial Intelligence</p>
+                    <p>Master of Engineering</p>
+                    <p>Information Technology (AI)</p>
                     <br>
 
                     <p>University of South Australia (UniSA), [2017-2021]</p>
