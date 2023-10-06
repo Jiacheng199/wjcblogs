@@ -33,7 +33,9 @@ export default {
 
 </script>
 
-<style scoped>.container {
+<style scoped>
+
+ .container {
     display: flex;
     height: 90vh;
   }
