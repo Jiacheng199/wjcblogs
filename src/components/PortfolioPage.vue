@@ -23,14 +23,14 @@ export default {
                     title: 'Find your study mate',
                     description: 'Why study alone when you can study with your mate?',
                     imageURL: 'portfolio/studymate.png',  // Placeholder image
-                    projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
+                    projectURL: 'https://github.com/Jiacheng199/StudyMate'
                 },
                 {
                     id: 2,
                     title: 'TreeHole',
                     description: 'No registration, anonymous, tell or write your secrets',
                     imageURL: 'portfolio/treehole.png',  // Placeholder image
-                    projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
+                    projectURL: 'https://github.com/Jiacheng199/TreeHole'
                 },
                 {
                     id: 3,
@@ -44,7 +44,7 @@ export default {
                     title: 'Exchange Everything',
                     description:'Exchange Everything is a platform for people to exchange their unwanted items with others.',
                     imageURL: 'portfolio/exchangeeverything.png',  // Placeholder image
-                    projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
+                    projectURL: 'https://github.com/Jiacheng199/Exchange'
                 }
             ]
         }
