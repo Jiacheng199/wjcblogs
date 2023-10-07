@@ -27,8 +27,6 @@ connection.connect(function(err) {
   console.log('Connected to the database.');
 });
 
-
-
 // create a new user 
 app.post('/userRegister', (req, res) => {
   const newUser = req.body;
