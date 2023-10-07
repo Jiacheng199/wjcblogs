@@ -26,7 +26,7 @@ This is primarily a personal project but if you stumble upon any bugs or areas o
 
 ## 📮 Feedback
 
-Got any feedback or just want to say hi? [Email me](mailto:jiacheng.develop@gmail.com) or drop a comment on a blog post!
+Got any feedback or just want to say hi? [Email me](mailto:yojc1999@gmail.com) or drop a comment on a blog post!
 
 ## 📜 License
 
