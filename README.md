@@ -18,7 +18,7 @@ Welcome to the GitHub repository of [**wjcblogs.com**](https://www.wjcblogs.com)
 - **Frontend:** Vue.js
 - **Backend:** Node.js (Express)
 - **Database:** MySQL
-- **Deployment:** Your hosting solution here (e.g., Netlify, Vercel, AWS)
+- **Deployment:** AWS
 
 ## 🤝 Contribution
 
