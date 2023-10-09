@@ -12,7 +12,7 @@
 <script>
 import axios from 'axios';
 //read backend url from .env file
-const backendUrl = process.env.VUE_APP_BACKEND_URL;
+const backendUrl = process.env.VUE_APP_BACKEND_URL || 'http://13.238.142.58:3000';
 export default {
     name: 'MyBlogs',
     //return blogs array for vue to render
