@@ -22,28 +22,28 @@ export default {
                     id: 1,
                     title: 'Find your study mate',
                     description: 'Why study alone when you can study with your mate?',
-                    imageURL: 'portfolio/studymate.png',  // Placeholder image
+                    imageURL: '/imgs/StudyMate.png',  // Placeholder image
                     projectURL: 'https://github.com/Jiacheng199/StudyMate'
                 },
                 {
                     id: 2,
                     title: 'TreeHole',
                     description: 'No registration, anonymous, tell or write your secrets',
-                    imageURL: 'portfolio/treehole.png',  // Placeholder image
+                    imageURL: '/imgs/treehole.png',  // Placeholder image
                     projectURL: 'https://github.com/Jiacheng199/TreeHole'
                 },
                 {
                     id: 3,
                     title: 'PetMeNow',
                     description: 'When you are on a business trip or unable to take care of your pet, let PetMeNow help you find a trustworthy temporary owner.',
-                    imageURL: 'portfolio/petmenow.png',  // Placeholder image
+                    imageURL: '/imgs/petmenow.png',  // Placeholder image
                     projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
                 },
                 {
                     id: 4,
                     title: 'Exchange Everything',
                     description:'Exchange Everything is a platform for people to exchange their unwanted items with others.',
-                    imageURL: 'portfolio/exchangeeverything.png',  // Placeholder image
+                    imageURL: '/imgs/exchangeeverything.png',  // Placeholder image
                     projectURL: 'https://github.com/Jiacheng199/Exchange'
                 }
             ]
