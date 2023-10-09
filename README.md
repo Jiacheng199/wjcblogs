@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ---
 
@@ -31,3 +32,29 @@ Got any feedback or just want to say hi? [Email me](mailto:yojc1999@gmail.com) o
 
 ---
 
+=======
+# wjcblogs
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+>>>>>>> frontend
