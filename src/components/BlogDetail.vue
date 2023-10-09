@@ -32,9 +32,8 @@ export default {
 
 <style scoped>
 .blog-detail {
-  padding: 20px;
-  border: 1px solid #ddd;
-  max-width: 600px;
+  padding: 30px;
+  width: 100%;
   margin: 0 auto;
 }
 </style>
