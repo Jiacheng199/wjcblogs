@@ -24,44 +24,30 @@ connection.connect(function(err) {
     console.error('Error connecting: ' + err.stack);
     return;
   }
+
   console.log('Connected to the database.');
+
 });
 
-// create a new user 
-app.post('/userRegister', (req, res) => {
-  const newUser = req.body;
-  console.log(newUser);
-  connection.query('INSERT INTO Users SET ?', newUser, function (error, results) {
+//read all blogs from mysql
+app.get('/readblogs', (req, res) => {
+  connection.query('SELECT * FROM blogs', (error, results) => {
     if (error) {
+      console.error('Error querying: ' + error.stack);
       return res.status(500).json({ error });
     }
-    res.json({ id: results.insertId, ...newUser });
+    res.json(results);
   });
 });
 
-// 用户验证
-app.post('/userlogin', (req, res) => {
-  const userCredentials = req.body;
-
-  connection.query('SELECT * FROM Users WHERE email = ?', userCredentials.email, function (error, results) {
+//read a single blog from mysql
+app.get('/readblog/:id', (req, res) => {
+  connection.query('SELECT * FROM blogs WHERE blog_id = ?', [req.params.id], (error, results) => {
     if (error) {
+      console.error('Error querying: ' + error.stack);
       return res.status(500).json({ error });
     }
-    
-    const hashedPassword = crypto.createHash('sha256').update(userCredentials.password).digest('hex');
-
-
-    // 确认查询结果是否存在并且密码是否匹配
-    if (results.length > 0 && results[0].password === hashedPassword) {
-      res.json({ success: true, message: '登录成功！' });
-    } else {
-      // if user email is test@test.com then pass anyway
-      if (userCredentials.email === 'test@test.com') {
-        res.json({ success: true, message: '登录成功！' });
-      }else{
-        res.json({ success: false, message: '无效的用户名或密码！' });
-      }
-    }
+    res.json(results);
   });
 });
 
