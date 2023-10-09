@@ -11,6 +11,7 @@
 
 <script>
 import axios from 'axios';
+//read backend url from .env file
 const backendUrl = process.env.VUE_APP_BACKEND_URL;
 export default {
     name: 'MyBlogs',
