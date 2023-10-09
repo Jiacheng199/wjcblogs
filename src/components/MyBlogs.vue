@@ -11,7 +11,7 @@
 
 <script>
 import axios from 'axios';
-
+const backendUrl = process.env.VUE_APP_BACKEND_URL;
 export default {
     name: 'MyBlogs',
     //return blogs array for vue to render
@@ -24,7 +24,7 @@ export default {
     methods: {
         async fetchBlogs() {
         try {
-            const response = await axios.get('http://localhost:3000/readblogs');
+            const response = await axios.get(`${backendUrl}/readblogs`);
             this.blogs = response.data;
         } catch (error) {
             console.error("Failed to fetch blogs:", error);
@@ -60,8 +60,8 @@ export default {
 }
 
 .blog:hover {
-    transform: scale(1.05); 
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); 
+    transform: scale(1.02);
+    box-shadow: 0px 4px 15px rgba(223, 120, 120, 0.1); 
 }
 
 .blog:first-child {
