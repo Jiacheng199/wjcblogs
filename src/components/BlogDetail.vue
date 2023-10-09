@@ -8,6 +8,7 @@
 
 <script>
 import axios from 'axios';
+const backendUrl = process.env.VUE_APP_BACKEND_URL;
 export default {
     name: 'MyBlogs',
     data() {
@@ -17,8 +18,7 @@ export default {
     },
     created() {
         const blogId = this.$route.params.id;
-        console.log(blogId);
-        axios.get(`http://localhost:3000/readblog/${blogId}`)
+        axios.get(`${backendUrl}/readblog/${blogId}`)
         .then(response => {
             this.blog = response.data[0]; // 如果API返回一个数组
         })
