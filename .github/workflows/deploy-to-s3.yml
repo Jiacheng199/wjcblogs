@@ -23,7 +23,8 @@ jobs:
 
     - name: Build Vue.js app
       run: yarn build
-      VUE_APP_BACKEND_URL: ${{ secrets.VUE_APP_BACKEND_URL }}
+      env:
+        VUE_APP_BACKEND_URL: ${{ secrets.VUE_APP_BACKEND_URL }}
 
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@v0.5.1
