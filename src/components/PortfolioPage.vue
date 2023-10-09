@@ -29,21 +29,21 @@ export default {
                     id: 2,
                     title: 'TreeHole',
                     description: 'No registration, anonymous, tell or write your secrets',
-                    imageURL: '/imgs/treehole.png',  // Placeholder image
+                    imageURL: '/imgs/Treehole.png',  // Placeholder image
                     projectURL: 'https://github.com/Jiacheng199/TreeHole'
                 },
                 {
                     id: 3,
                     title: 'PetMeNow',
                     description: 'When you are on a business trip or unable to take care of your pet, let PetMeNow help you find a trustworthy temporary owner.',
-                    imageURL: '/imgs/petmenow.png',  // Placeholder image
+                    imageURL: '/imgs/PetMeNow.png',  // Placeholder image
                     projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
                 },
                 {
                     id: 4,
                     title: 'Exchange Everything',
                     description:'Exchange Everything is a platform for people to exchange their unwanted items with others.',
-                    imageURL: '/imgs/exchangeeverything.png',  // Placeholder image
+                    imageURL: '/imgs/ExchangeEverything.png',  // Placeholder image
                     projectURL: 'https://github.com/Jiacheng199/Exchange'
                 }
             ]
