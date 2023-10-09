@@ -21,9 +21,6 @@ jobs:
     - name: Install dependencies
       run: yarn install
 
-    - name: Modify vue.config.js
-      run: echo "module.exports = { publicPath: '/' } > vue.config.js
-
     - name: Build Vue.js app
       run: yarn build
 
