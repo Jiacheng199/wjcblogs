@@ -22,7 +22,3 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
-# Github Workflows
-.github/workflows
-.github
