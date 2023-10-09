@@ -7,7 +7,7 @@
         </div>
         <div class="name">
             <h1 class="name-display">
-                <p class="name-display-p">Hi, I'm <span style="color: #00bfa5;">Jiacheng Wang.</span></p>
+                <p class="name-display-p">Hi, I'm <span style="color: #00bfa5;">Jiacheng.</span></p>
                 </h1>
             <div class="self-introduction">
                 <p>I'm a software engineer based in Melbourne City.</p>
