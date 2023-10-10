@@ -3,7 +3,7 @@ name: Deploy to S3
 on:
   push:
     branches:
-      - frontend  # or your default branch name
+      - main  # or your default branch name
 
 jobs:
   build-and-deploy:
@@ -16,7 +16,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16'
 
     - name: Install dependencies
       run: yarn install
