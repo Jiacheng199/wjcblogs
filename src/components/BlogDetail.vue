@@ -18,9 +18,9 @@ export default {
     },
     created() {
         const blogId = this.$route.params.id;
-        axios.get(`${backendUrl}/readblog/${blogId}`)
+        axios.get(`${backendUrl}/readblogs/${blogId}`)
         .then(response => {
-            this.blog = response.data[0]; // 如果API返回一个数组
+            this.blog = response.data[0];
         })
         .catch(error => {
             console.error("Failed to fetch blog detail:", error);
