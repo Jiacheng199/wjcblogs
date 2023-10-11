@@ -41,7 +41,7 @@ app.get('/readblogs', (req, res) => {
 });
 
 //read a single blog from mysql
-app.get('/readblog/:id', (req, res) => {
+app.get('/readblogs/:id', (req, res) => {
   connection.query('SELECT * FROM blogs WHERE blog_id = ?', [req.params.id], (error, results) => {
     if (error) {
       console.error('Error querying: ' + error.stack);
