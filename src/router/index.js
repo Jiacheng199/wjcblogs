@@ -5,6 +5,8 @@ import AboutMe from '@/components/AboutMe'
 import PortfolioPage from '@/components/PortfolioPage'
 import MyBlogs  from '@/components/MyBlogs'
 import BlogDetail from '@/components/BlogDetail'
+import AdminLogin from '@/components/admin_pages/AdminLogin'
+import AdminPage from '@/components/admin_pages/AdminPage'
 Vue.use(Router)
 
 const routes = [
@@ -32,6 +34,16 @@ const routes = [
         path: '/MyBlogs/:id',
         name: 'BlogDetail',
         component: BlogDetail,
+    },
+    {
+        path: '/AdminLogin',
+        name: 'AdminLogin',
+        component: AdminLogin,
+    },
+    {
+        path: '/AdminPage',
+        name: 'AdminPage',
+        component: AdminPage,
     }
 
 ]

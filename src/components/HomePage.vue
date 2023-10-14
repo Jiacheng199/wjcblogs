@@ -6,9 +6,7 @@
             </div>
         </div>
         <div class="name">
-            <h1 class="name-display">
-                <p class="name-display-p">Hi, I'm <span style="color: #00bfa5;">Jiacheng.</span></p>
-                </h1>
+          <h1 class="name-display">Hi, I'm <span style="color: #00bfa5;">Jiacheng.</span></h1>
             <div class="self-introduction">
                 <p>I'm a software engineer based in Melbourne City.</p>
                 <p>I'm passionate about making crazy and inspiring ideas come to life through programming!</p>
@@ -37,7 +35,6 @@ export default {
 
  .container {
     display: flex;
-    height: 90vh;
   }
   
   .pic,
@@ -47,6 +44,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 5%;
 }
   
   .image-container {
