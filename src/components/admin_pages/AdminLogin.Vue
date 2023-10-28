@@ -5,11 +5,13 @@
         <button @click="login">Login</button>
     </div>
 </template>
+
 <script>
 export default {
     name: 'AdminLogin',
 }//test
 </script>
+
 <style scoped>
 .admin-container {
     display: flex;
