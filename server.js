@@ -55,5 +55,37 @@ app.get('/readblogs/:id', (req, res) => {
   });
 });
 
+// admin login verification
+app.post('/adminlogin', (req, res) => {
+  try {
+    const password = req.body.password;
+    const hash = crypto.createHash('sha256');
+
+    //Select ID == 1 from admin table(only one admin)
+    pool.query('SELECT * FROM admin WHERE id = 1', (error, results) => {
+      if (error) {
+        console.error('Error querying: ' + error.stack);
+        return res.status(500).json({ error });
+      }
+
+      // Hash the password and compare with the one in the database
+      hash.update(password);
+      const hashedPassword = hash.digest('hex');
+      if (hashedPassword === results[0].password) {
+        console.log('Login successful.');
+        res.json({ success: true });
+      } else {
+        console.log('Login failed.');
+        res.json({ success: false });
+      }
+    });
+
+  } catch (error) {
+    console.error('Error: ' + error.stack);
+    return res.status(500).json({ error });
+  }
+
+});
+
 
 app.listen(3000);
