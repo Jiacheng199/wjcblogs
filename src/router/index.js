@@ -36,7 +36,7 @@ const routes = [
         component: BlogDetail,
     },
     {
-        path: '/Admin',
+        path: '/AdminLogin',
         name: 'AdminLogin',
         component: AdminLogin,
     },

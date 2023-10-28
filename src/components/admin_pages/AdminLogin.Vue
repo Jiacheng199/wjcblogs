@@ -7,9 +7,29 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'AdminLogin',
-}//test
+    data() {
+        return{
+            password:'',
+            errorMsg:''
+        }
+    },
+    methods:{
+        async login(){
+            try {
+                console.log(this.password);
+                await axios.post('YOUR_BACKEND_API_ENDPOINT', {
+                    password: this.password
+                });
+            } catch (error) {
+                this.errorMsg = 'An error occurred. Please try again later.';
+            }
+        }
+    }
+}
 </script>
 
 <style scoped>
