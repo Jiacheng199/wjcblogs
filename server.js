@@ -69,9 +69,9 @@ app.post('/adminlogin', (req, res) => {
       }
 
       // Hash the password and compare with the one in the database
-      hash.update(password);
-      const hashedPassword = hash.digest('hex');
-      if (hashedPassword === results[0].password) {
+      // hash.update(password);
+      // const hashedPassword = hash.digest('hex');
+      if (password === results[0].password) {
         console.log('Login successful.');
         res.json({ success: true });
       } else {
