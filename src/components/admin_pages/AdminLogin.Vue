@@ -8,6 +8,7 @@
 
 <script>
 import axios from 'axios';
+const backendUrl = "http://localhost:3000";
 
 export default {
     name: 'AdminLogin',
@@ -20,10 +21,13 @@ export default {
     methods:{
         async login(){
             try {
-                console.log(this.password);
-                await axios.post('YOUR_BACKEND_API_ENDPOINT', {
-                    password: this.password
-                });
+                //try local backend first
+                const response = await axios.post(`${backendUrl}/adminlogin`, { password: this.password });
+                if (response.data) {
+                    this.$router.push({ name: 'AdminPage' });
+                } else {
+                    this.errorMsg = 'Incorrect password. Please try again.';
+                }
             } catch (error) {
                 this.errorMsg = 'An error occurred. Please try again later.';
             }
