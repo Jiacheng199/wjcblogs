@@ -72,10 +72,8 @@ app.post('/adminlogin', (req, res) => {
       // hash.update(password);
       // const hashedPassword = hash.digest('hex');
       if (password === results[0].password) {
-        console.log('Login successful.');
         res.json({ success: true });
       } else {
-        console.log('Login failed.');
         res.json({ success: false });
       }
     });
