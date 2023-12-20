@@ -23,7 +23,8 @@ export default {
             try {
                 //try local backend first
                 const response = await axios.post(`${backendUrl}/adminlogin`, { password: this.password });
-                if (response.data) {
+                console.log(response.data);
+                if (response.data.success) {
                     this.$router.push({ name: 'AdminPage' });
                 } else {
                     this.errorMsg = 'Incorrect password. Please try again.';
