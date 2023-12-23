@@ -45,9 +45,9 @@
         </div>
     </div>
     <!-- Download resume here -->
-    <div class="download-resume">
+    <!-- <div class="download-resume">
         <a href="resume/cv.pdf" download>Download my resume here!</a>
-    </div>
+    </div> -->
 
 </div>
 
