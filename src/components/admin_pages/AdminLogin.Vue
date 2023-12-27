@@ -3,6 +3,7 @@
         <h1>Input your admin password</h1>
         <input type="password" v-model="password" />
         <button @click="login">Login</button>
+        <p v-if="errorMsg" class="error-message">{{ errorMsg }}</p>
     </div>
 </template>
 
@@ -28,6 +29,7 @@ export default {
                     sessionStorage.setItem('admin', true);
                     this.$router.push({ name: 'AdminPage' });
                 } else {
+                    //alert the user that the password is incorrect
                     this.errorMsg = 'Incorrect password. Please try again.';
                 }
             } catch (error) {
@@ -71,6 +73,11 @@ export default {
     border: none;
     border-radius: 20px;
     cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-top: 20px;
 }
     
 </style>
