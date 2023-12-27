@@ -3,6 +3,7 @@
         <h1>Admin Page</h1>
         <quill-editor v-model="editorHtml"></quill-editor>
         <p>Admin page goes here.</p>
+        <button @click="logout">Logout</button>
     </div>
 </template>
 
@@ -20,6 +21,12 @@ export default {
     data() {
         return {
             editorHtml: ''
+        }
+    },
+    methods: {
+        logout() {
+            localStorage.removeItem('admin');
+            this.$router.push({ name: 'HomePage' });
         }
     }
 }

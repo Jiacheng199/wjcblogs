@@ -7,6 +7,7 @@ import MyBlogs  from '@/components/MyBlogs'
 import BlogDetail from '@/components/BlogDetail'
 import AdminLogin from '@/components/admin_pages/AdminLogin'
 import AdminPage from '@/components/admin_pages/AdminPage'
+
 Vue.use(Router)
 
 const routes = [
@@ -44,12 +45,33 @@ const routes = [
         path: '/AdminPage',
         name: 'AdminPage',
         component: AdminPage,
+        meta: {
+            requiresAuth: true
+        }
     }
 
 ]
 
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+const router = new Router({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
+});
+
+//add global navigation guard
+router.beforeEach((to, from, next) => {
+    console.log(localStorage.getItem('admin'));
+    const loggedIn = localStorage.getItem('admin') === "true";
+    //check if the route requires auth and the user is not logged in
+    if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
+        next('/AdminLogin');
+    }else{
+        //proceed to route if logged in as admin
+        next();
+    }
+}
+);
+
+
+
+export default router;
