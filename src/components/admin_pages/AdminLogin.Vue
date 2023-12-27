@@ -25,7 +25,7 @@ export default {
                 const response = await axios.post(`${backendUrl}/adminlogin`, { password: this.password });
                 console.log(response.data);
                 if (response.data.success) {
-                    localStorage.setItem('admin', true);
+                    sessionStorage.setItem('admin', true);
                     this.$router.push({ name: 'AdminPage' });
                 } else {
                     this.errorMsg = 'Incorrect password. Please try again.';

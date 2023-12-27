@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         logout() {
-            localStorage.removeItem('admin');
+            sessionStorage.removeItem('admin');
             this.$router.push({ name: 'HomePage' });
         }
     }
