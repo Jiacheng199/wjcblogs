@@ -89,8 +89,9 @@ app.post('/uploadblog', (req, res) => {
     const title = req.body.title;
     const author = req.body.author;
     const content = req.body.content;
+    const date = new Date();
 
-    pool.query('INSERT INTO blogs (title, author, content) VALUES (?, ?, ?)', [title, author, content], (error, results) => {
+    pool.query('INSERT INTO blogs (title, author, content, publish_date) VALUES (?, ?, ?, ?)', [title, author, content, date], (error, results) => {
       if (error) {
         console.error('Error querying: ' + error.stack);
         return res.status(500).json({ error });
