@@ -29,7 +29,7 @@ pool.getConnection((err, connection) => {
     return;
   }
 
-  console.log('Connected to the database.');
+  console.log('Connected to the database is successful!');
   connection.release(); // Release the connection back to the pool
 });
 
@@ -44,7 +44,7 @@ app.get('/readblogs', (req, res) => {
   });
 });
 
-// Read a single blog from mysql
+// Read a single blog from mysql (for blog details page)
 app.get('/readblogs/:id', (req, res) => {
   pool.query('SELECT * FROM blogs WHERE blog_id = ?', [req.params.id], (error, results) => {
     if (error) {
@@ -68,9 +68,6 @@ app.post('/adminlogin', (req, res) => {
         return res.status(500).json({ error });
       }
 
-      // Hash the password and compare with the one in the database
-      // hash.update(password);
-      // const hashedPassword = hash.digest('hex');
       if (password === results[0].password) {
         res.json({ success: true });
       } else {
@@ -83,6 +80,28 @@ app.post('/adminlogin', (req, res) => {
     return res.status(500).json({ error });
   }
 
+});
+
+// Upload a blog to mysql (for admin)
+
+app.post('/uploadblog', (req, res) => {
+  try{
+    const title = req.body.title;
+    const author = req.body.author;
+    const content = req.body.content;
+
+    pool.query('INSERT INTO blogs (title, author, content) VALUES (?, ?, ?)', [title, author, content], (error, results) => {
+      if (error) {
+        console.error('Error querying: ' + error.stack);
+        return res.status(500).json({ error });
+      }
+      res.json({ success: true });
+    });
+
+  } catch (error) {
+    console.error('Error: ' + error.stack);
+    return res.status(500).json({ error });
+  }
 });
 
 
