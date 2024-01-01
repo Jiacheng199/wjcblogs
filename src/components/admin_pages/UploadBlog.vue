@@ -14,8 +14,8 @@ import { quillEditor } from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'  // import styles
 import 'quill/dist/quill.bubble.css'
-// import axios from 'axios';
-
+import axios from 'axios';
+const backendUrl = process.env.VUE_APP_BACKEND_URL;
 export default {
     name: 'AdminPage',
     components: {
@@ -23,7 +23,9 @@ export default {
     },
     data() {
         return {
-            editorHtml: ''
+            editorHtml: '',
+            title: '',
+            author: ''
         }
     },
     methods: {
@@ -34,7 +36,11 @@ export default {
         },
         async Upload() {
             try {
+                console.log(this.title);
+                console.log(this.author);
                 console.log(this.editorHtml);
+                const response = await axios.post(`${backendUrl}/uploadblog`, { title: this.title, author: this.author, content: this.editorHtml });
+                console.log(response.data);
             } catch (error) {
                 console.error('Error uploading content:', error);
             }
@@ -64,6 +70,15 @@ h1 {
     display: block;
     margin-bottom: 2%;
 }
+
+button {
+    width: 20%;
+    height: 25px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 2%;
+}
+
 
 
 </style>
