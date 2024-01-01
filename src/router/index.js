@@ -7,6 +7,7 @@ import MyBlogs  from '@/components/MyBlogs'
 import BlogDetail from '@/components/BlogDetail'
 import AdminLogin from '@/components/admin_pages/AdminLogin'
 import AdminPage from '@/components/admin_pages/AdminPage'
+import UploadBlog from '@/components/admin_pages/UploadBlog'
 
 Vue.use(Router)
 
@@ -48,7 +49,15 @@ const routes = [
         meta: {
             requiresAuth: true
         }
-    }
+    },
+    {
+        path: '/UploadBlog',
+        name: 'UploadBlog',
+        component: UploadBlog,
+        meta: {
+            requiresAuth: true
+        }
+    },
 
 ]
 
