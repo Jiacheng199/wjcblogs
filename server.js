@@ -83,7 +83,6 @@ app.post('/adminlogin', (req, res) => {
 });
 
 // Upload a blog to mysql (for admin)
-
 app.post('/uploadblog', (req, res) => {
   try{
     const title = req.body.title;
@@ -105,5 +104,21 @@ app.post('/uploadblog', (req, res) => {
   }
 });
 
+// delete a blog from mysql (for admin)
+app.delete('/deleteblog/:id', (req, res) => {
+  try {
+    pool.query('DELETE FROM blogs WHERE blog_id = ?', [req.params.id], (error, results) => {
+      if (error) {
+        console.error('Error querying: ' + error.stack);
+        return res.status(500).json({ error });
+      }
+      res.json({ success: true });
+    });
+
+  } catch (error) {
+    console.error('Error: ' + error.stack);
+    return res.status(500).json({ error });
+  }
+});
 
 app.listen(3000);
