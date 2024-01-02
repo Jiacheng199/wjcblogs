@@ -80,10 +80,10 @@ export default {
     font-weight: bold;
 }
 
-.blog p {
-    font-size: 16px; 
-    color: #555; 
-    line-height: 1.5; 
+.blog h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 </style>
