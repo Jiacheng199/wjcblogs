@@ -2,7 +2,7 @@
     <div class="blogs">
         <div class="blog" v-for="blog in blogs" :key="blog.blog_id" @click="goToBlogDetail(blog.blog_id)">
             <h2>{{ blog.title }}</h2>
-            <p>{{ blog.content }}</p>
+            <h3>{{ blog.author }}</h3>
         </div>
     </div>
 </template>
