@@ -1,6 +1,6 @@
 <template>
     <div class="admin-container">
-        <h1>Admin Features</h1>
+        <h1>Admin</h1>
         <button @click="upload">Upload</button>
         <button @click="blogsManagement">Blogs Management</button>
         <button @click="logout">Logout</button>
@@ -15,7 +15,7 @@ export default {
             this.$router.push({ name: 'UploadBlog' });
         },
         blogsManagement() {
-            this.$router.push({ name: 'MyBlogs' });
+            this.$router.push({ name: 'BlogsManagement' });
         },
         //clear the session storage and redirect to the home page when logout
         logout() {

@@ -36,10 +36,8 @@ export default {
         },
         async Upload() {
             try {
-                console.log(this.title);
-                console.log(this.author);
-                console.log(this.editorHtml);
-                const response = await axios.post(`${backendUrl}/uploadblog`, { title: this.title, author: this.author, content: this.editorHtml });
+                const response = await axios.post(`${backendUrl}/uploadblog`, 
+                { title: this.title, author: this.author, content: this.editorHtml });
                 console.log(response.data);
             } catch (error) {
                 console.error('Error uploading content:', error);

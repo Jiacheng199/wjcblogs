@@ -8,6 +8,7 @@ import BlogDetail from '@/components/BlogDetail'
 import AdminLogin from '@/components/admin_pages/AdminLogin'
 import AdminPage from '@/components/admin_pages/AdminPage'
 import UploadBlog from '@/components/admin_pages/UploadBlog'
+import BlogsManagement from '@/components/admin_pages/BlogsManagement'
 
 Vue.use(Router)
 
@@ -58,6 +59,14 @@ const routes = [
             requiresAuth: true
         }
     },
+    {
+        path: '/BlogsManagement',
+        name: 'BlogsManagement',
+        component: BlogsManagement,
+        meta: {
+            requiresAuth: true
+        }
+    }
 
 ]
 
