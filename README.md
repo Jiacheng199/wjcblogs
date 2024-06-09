@@ -7,7 +7,7 @@ Welcome to the GitHub repository of [**wjcblogs.com**](https://www.wjcblogs.com)
 
 ## 📚 Features
 
-- **👋 Personal Introduction:** Get to know more about Jiacheng Wang, his passions, and interests.
+- **👋 Personal Introduction:** Get to know more about me, my passions and interests.
   
 - **✍️ Blogs:** Dive into articles on tech topics, personal reflections, and detailed tutorials. A mirror to my life and thoughts as a software developer.
 
@@ -17,7 +17,7 @@ Welcome to the GitHub repository of [**wjcblogs.com**](https://www.wjcblogs.com)
 
 - **Frontend:** Vue.js
 - **Backend:** Node.js (Express)
-- **Database:** MySQL
+- **Database:** MySQL(AWS RDS)
 - **Deployment:** AWS(S3) & GitHub Action
 
 ## 🤝 Contribution
