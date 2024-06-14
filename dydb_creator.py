@@ -20,10 +20,18 @@ session = boto3.Session(
 #connect to dynamoDB
 dydb = session.client("dynamodb")
 
-#List Tables to test connection
+#delete the old posts table
+# result = dydb.delete_table(
+#     TableName='Posts'
+# )
+# print(result)
+
+# #List Tables to test connection
 db_list = dydb.list_tables()
 print(db_list.get('TableNames'))
 
-#Describe a Table
-table_description = dydb.describe_table(TableName="Posts")
-print(table_description.get('Table').get('KeySchema'))
+# #Describe a Table
+# table_description = dydb.describe_table(TableName="Posts")
+# print(table_description.get('Table').get('KeySchema'))
+
+
