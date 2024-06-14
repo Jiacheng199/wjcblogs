@@ -20,18 +20,25 @@ session = boto3.Session(
 #connect to dynamoDB
 dydb = session.client("dynamodb")
 
-#delete the old posts table
-# result = dydb.delete_table(
-#     TableName='Posts'
-# )
-# print(result)
-
-# #List Tables to test connection
+#List Tables to test connection
 db_list = dydb.list_tables()
 print(db_list.get('TableNames'))
 
-# #Describe a Table
-# table_description = dydb.describe_table(TableName="Posts")
-# print(table_description.get('Table').get('KeySchema'))
+#Create bolgs table
+blogposts_table = blogposts_table = dydb.create_table(
+    TableName='Blogs',
+    KeySchema=[
+        {
+            'AttributeName': 'BlogID', # Partition key
+            'KeyType': 'HASH'  
+        }
+    ],
+    AttributeDefinitions=[
+        {
+            'AttributeName': 'BlogID',
+            'AttributeType': 'S'
+        }
+    ],
+    BillingMode='PAY_PER_REQUEST')
 
 
