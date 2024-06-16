@@ -17,28 +17,9 @@ session = boto3.Session(
     region_name=region
 )
 
-#connect to dynamoDB
-dydb = session.client("dynamodb")
-
 #List Tables to test connection
-db_list = dydb.list_tables()
+db_list = session.client("dynamodb").list_tables()
 print(db_list.get('TableNames'))
 
-#Create bolgs table
-blogposts_table = blogposts_table = dydb.create_table(
-    TableName='Blogs',
-    KeySchema=[
-        {
-            'AttributeName': 'BlogID', # Partition key
-            'KeyType': 'HASH'  
-        }
-    ],
-    AttributeDefinitions=[
-        {
-            'AttributeName': 'BlogID',
-            'AttributeType': 'S'
-        }
-    ],
-    BillingMode='PAY_PER_REQUEST')
 
 
