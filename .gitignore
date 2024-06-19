@@ -8,6 +8,9 @@ yarn-error.log*
 #SQL
 sql/
 
+#python env
+.venv
+
 # Runtime data
 pids
 *.pid
