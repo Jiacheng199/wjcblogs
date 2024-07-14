@@ -35,6 +35,7 @@ export default {
 
  .container {
     display: flex;
+    justify-content: center;
   }
   
   .pic,

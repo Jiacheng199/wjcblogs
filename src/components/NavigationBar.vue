@@ -38,16 +38,14 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: inherit;
+    color: #28887b;
     margin: 0 60px;
     font-size: 35px;
     font-weight: 500;
 }
 
 nav :hover {
-    color: #28887b;
     font-weight: 600;
-    transform: scale(1.1);
 }
 
 
