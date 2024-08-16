@@ -4,7 +4,7 @@
     <!-- Background, expertise and self-photo -->
     <div class="about-container">
         <div class="profile-img">
-            <img src="self-pic/self-ai-pic.png" alt="profile-image">
+            <img class="self-pic" src="self-pic/self-ai-pic.png" alt="profile-image">
             <div class="icons">
                 <a href="https://github.com/jiacheng199" target="_blank">
                     <i class="fab fa-github"></i>
@@ -58,18 +58,14 @@
         name: 'AboutMe',
         methods: {
         emailMe() {
-            window.open('mailto:jiacheng.develop@gmail.com');
+            window.open('mailto:yojc1999@gmail.com');
         },
     },
  }
 </script>
 
 <style scoped>
-    .outer-container {
-        display: flex;
-        flex-direction: column; 
-        margin-bottom: 50px; 
-    }
+
     .about-container {
         display: flex;
         margin-top: 4%;
@@ -79,9 +75,11 @@
 
     .profile-img {
         flex: 1;  /* Takes up 1/3 of the container */
-        align-items: center;
-        justify-content: center;
         height: 100%; /* Make sure the height is defined */
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+
     }
 
     .description {
