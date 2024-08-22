@@ -9,6 +9,8 @@ import AdminLogin from '@/components/admin_pages/AdminLogin'
 import AdminPage from '@/components/admin_pages/AdminPage'
 import UploadBlog from '@/components/admin_pages/UploadBlog'
 import BlogsManagement from '@/components/admin_pages/BlogsManagement'
+import AuthCallback from '@/components/admin_pages/AuthCallback'
+
 
 Vue.use(Router)
 
@@ -22,6 +24,11 @@ const routes = [
         path: '/AboutMe',
         name: 'AboutMe',
         component: AboutMe,
+    },
+    {
+        path: '/callback',
+        name: 'AuthCallback',
+        component: AuthCallback,
     },
     {
         path: '/PortfolioPage',
@@ -66,8 +73,7 @@ const routes = [
         meta: {
             requiresAuth: true
         }
-    }
-
+    },
 ]
 
 const router = new Router({

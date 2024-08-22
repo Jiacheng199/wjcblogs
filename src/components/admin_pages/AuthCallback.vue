@@ -14,11 +14,12 @@ export default {
         const code = params.get('code');
         if (code) {
             try {
+                console.log(code);
                 const tokenResponse = await axios.post('https://64jr50gz41.execute-api.ap-southeast-2.amazonaws.com/admin/exchange_token', {
                     code: code,
                     redirectUri: 'http://localhost:8080/callback'
                 });
-
+                console.log('success got token from Conginto');
                 // Store tokens in sessionStorage or localStorage
                 sessionStorage.setItem('access_token', tokenResponse.data.access_token);
                 sessionStorage.setItem('id_token', tokenResponse.data.id_token);
