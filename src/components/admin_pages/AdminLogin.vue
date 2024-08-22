@@ -11,8 +11,7 @@ export default {
     methods: {
         redirectToCognito() {
             // Cognito Hosted UI URL
-
-            const url = 'https://auth.wjcblogs.com/oauth2/authorize?client_id=5p7d09j06sshpk7f3ge418kk1n&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fwjcblogs.com';
+            const url = 'https://auth.wjcblogs.com/oauth2/authorize?client_id=5p7d09j06sshpk7f3ge418kk1n&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fwjcblogs.com%2Fadminpage';
 
             // Redirect user to Cognito Hosted UI
             window.location.href = url;
