@@ -84,8 +84,10 @@ const router = new Router({
 
 //add global navigation guard
 router.beforeEach((to, from, next) => {
-    console.log(sessionStorage.getItem('admin'));
-    const loggedIn = sessionStorage.getItem('admin') === "true";
+
+    console.log(sessionStorage.getItem('access_token'));
+    const loggedIn = sessionStorage.getItem('access_token');
+
     //check if the route requires auth and the user is not logged in
     if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
         next('/AdminLogin');
@@ -93,6 +95,7 @@ router.beforeEach((to, from, next) => {
         //proceed to route if logged in as admin
         next();
     }
+
 }
 );
 
