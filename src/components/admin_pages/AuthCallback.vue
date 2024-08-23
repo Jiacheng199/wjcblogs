@@ -25,7 +25,7 @@ export default {
                 sessionStorage.setItem('id_token', tokenResponse.data.id_token);
 
                 // Redirect to the admin page
-                this.$router.push({ name: 'AdminPage' });
+                this.$router.push({ name: 'AboutMe' });
             } catch (error) {
                 console.error('Error exchanging code for token:', error);
             }
