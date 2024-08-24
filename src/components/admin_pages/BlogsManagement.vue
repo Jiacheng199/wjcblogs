@@ -1,15 +1,16 @@
 <template>
     <div class="blogs">
-        <div class="blog" v-for="blog in blogs" :key="blog.blog_id">
+        <div class="blog" v-for="blog in blogs" :key="blog.BlogID">
             <h1>{{ blog.Title }}</h1>
             <h3>{{ blog.Author }}</h3>
-            <button>Delete</button>
+            <button @click="deleteButton(blog.BlogID)">Delete</button>
         </div>
     </div>
 </template>
 
 <script>
 import { fetchBlogs } from '@/api/blogs/fetchBlogs';
+import { deleteBlog } from '@/api/blogs/deleteBlog';
 
 export default {
     name: 'BlogsManagement',
@@ -20,6 +21,18 @@ export default {
     },
     async created() {
         this.blogs = await fetchBlogs();
+    },
+    methods: {
+        async deleteButton(id){
+            try{
+                const response = await deleteBlog(id);
+                console.log(response);
+                this.blogs = this.blogs.filter(blog => blog.BlogID !== id);
+
+            }catch (error){
+                console.log(error);
+            }
+        }
     }
 
 }

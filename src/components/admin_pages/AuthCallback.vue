@@ -28,6 +28,7 @@ export default {
 
                 //set axios Authorization header for futher admin level operations
                 axios.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse.data.access_token}`;
+                
 
                 // Redirect to the admin page
                 this.$router.push({ name: 'AdminPage' });
