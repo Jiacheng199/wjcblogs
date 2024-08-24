@@ -2,6 +2,7 @@ import axios  from "axios";
 
 const backendUrl = process.env.VUE_APP_BACKEND_URL;
 
+//get all blogs in db
 export const fetchBlogs = async () => {
     try {
         const response = await axios.get(`${backendUrl}/blogs`);
@@ -12,3 +13,15 @@ export const fetchBlogs = async () => {
         throw error;
     }
 };
+
+//get a blog by the given blog id
+export const fetchBlogByID = async(id) => {
+    try{
+        const response = await axios.get(`${backendUrl}/blogs/${id}`);
+        console.log(response.data);
+        return response.data;
+    }catch (error){
+        console.log("Failed to fetch blog by id:",error);
+        throw error;
+    }
+}

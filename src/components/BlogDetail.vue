@@ -1,14 +1,14 @@
 <template>
     <div class="blog-detail">
-      <h1>{{ blog.title }}</h1>
-      <h3>{{ blog.author }}</h3>
-      <div v-html="blog.content"></div>
+      <h1>{{ blog.Title }}</h1>
+      <h3>{{ blog.Author }}</h3>
+      <div v-html="blog.Content"></div>
     </div>
   </template>
 
 <script>
-import axios from 'axios';
-const backendUrl = process.env.VUE_APP_BACKEND_URL;
+import { fetchBlogByID } from '@/api/blogs/fetchBlogs';
+
 export default {
     name: 'MyBlogs',
     data() {
@@ -16,15 +16,8 @@ export default {
             blog: {}
         }
     },
-    created() {
-        const blogId = this.$route.params.id;
-        axios.get(`${backendUrl}/readblogs/${blogId}`)
-        .then(response => {
-            this.blog = response.data[0];
-        })
-        .catch(error => {
-            console.error("Failed to fetch blog detail:", error);
-        });
+    async created() {
+      this.blog = await fetchBlogByID(1);
 }
 
 }
