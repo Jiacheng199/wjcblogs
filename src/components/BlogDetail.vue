@@ -11,14 +11,17 @@ import { fetchBlogByID } from '@/api/blogs/fetchBlogs';
 
 export default {
     name: 'MyBlogs',
+
     data() {
         return {
             blog: {}
         }
     },
+
     async created() {
-      this.blog = await fetchBlogByID(1);
-}
+      const blogId = this.$route.params.id;
+      this.blog = await fetchBlogByID(blogId);
+    }
 
 }
 </script>
