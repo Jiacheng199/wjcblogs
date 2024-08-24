@@ -8,6 +8,7 @@ export const fetchBlogs = async () => {
         const response = await axios.get(`${backendUrl}/blogs`);
         return response.data;
     } catch (error) {
+        console.log("Failed to fetch blogs",error);
         throw error;
     }
 };

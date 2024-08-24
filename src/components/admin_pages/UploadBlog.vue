@@ -13,7 +13,8 @@ import { quillEditor } from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'  // import styles
 import 'quill/dist/quill.bubble.css'
-import { uploadBlog } from '@/api/blogs/uploadBlog'
+import { uploadBlog } from '@/api/blogs/uploadBlog' //blog upload api
+import {v4 as uuidv4} from 'uuid'
 
 export default {
     name: 'AdminPage',
@@ -34,10 +35,12 @@ export default {
     methods: {
         async upload(){
             try{
+                //generate new id for new blog
+                this.blog.BlogID = uuidv4();
                 const response = await uploadBlog(this.blog);
-                console.log("Upload success:",response);
+                console.log("Upload success:", response);
             }catch (error){
-                console.log("Unable to upload blog",error);
+                console.log("Unable to upload blog", error);
             }
         }
     }
