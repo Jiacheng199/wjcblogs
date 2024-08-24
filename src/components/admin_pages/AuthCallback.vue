@@ -26,6 +26,9 @@ export default {
                 sessionStorage.setItem('access_token', tokenResponse.data.access_token);
                 sessionStorage.setItem('id_token', tokenResponse.data.id_token);
 
+                //set axios Authorization header for futher admin level operations
+                axios.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse.data.access_token}`;
+
                 // Redirect to the admin page
                 this.$router.push({ name: 'AdminPage' });
             } catch (error) {
