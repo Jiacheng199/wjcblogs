@@ -22,6 +22,7 @@ export default {
     },
 
     methods: {
+        //route to blog deatil page
         goToBlogDetail(blogId) {
             this.$router.push({ name: 'BlogDetail', params: { id: blogId } });
         },
