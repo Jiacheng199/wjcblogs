@@ -1,11 +1,10 @@
 <template>
     <div>
         <h1>Blog upload</h1>
-        <input type="text" v-model="title" placeholder="Title" class="title">
-        <input type="text" v-model="author" placeholder="Author" class="author">
-        <quill-editor v-model="editorHtml"></quill-editor>
-        <button @click="Upload">Upload</button>
-        <button @click="logout">Logout</button>
+        <input type="text" v-model="blog.Title" placeholder="Title" class="title">
+        <input type="text" v-model="blog.Author" placeholder="Author" class="author">
+        <quill-editor v-model="blog.Content"></quill-editor>
+        <button @click="upload">Upload</button>
     </div>
 </template>
 
@@ -14,8 +13,8 @@ import { quillEditor } from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'  // import styles
 import 'quill/dist/quill.bubble.css'
-import axios from 'axios';
-const backendUrl = process.env.VUE_APP_BACKEND_URL;
+import { uploadBlog } from '@/api/blogs/uploadBlog'
+
 export default {
     name: 'AdminPage',
     components: {
@@ -23,24 +22,22 @@ export default {
     },
     data() {
         return {
-            editorHtml: '',
-            title: '',
-            author: ''
+            blog: {
+                BlogID: '',
+                Title: '',
+                Author: '',
+                Content: '',
+            },
+            error: null,
         }
     },
     methods: {
-        //clear the session storage and redirect to the home page when logout
-        logout() {
-            sessionStorage.removeItem('admin');
-            this.$router.push({ name: 'HomePage' });
-        },
-        async Upload() {
-            try {
-                const response = await axios.post(`${backendUrl}/uploadblog`, 
-                { title: this.title, author: this.author, content: this.editorHtml });
-                console.log(response.data);
-            } catch (error) {
-                console.error('Error uploading content:', error);
+        async upload(){
+            try{
+                const response = await uploadBlog(this.blog);
+                console.log("Upload success:",response);
+            }catch (error){
+                console.log("Unable to upload blog",error);
             }
         }
     }

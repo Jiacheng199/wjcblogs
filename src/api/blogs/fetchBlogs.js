@@ -6,10 +6,8 @@ const backendUrl = process.env.VUE_APP_BACKEND_URL;
 export const fetchBlogs = async () => {
     try {
         const response = await axios.get(`${backendUrl}/blogs`);
-        console.log(response.data);
         return response.data;
     } catch (error) {
-        console.error("Failed to fetch blogs:", error);
         throw error;
     }
 };
@@ -18,7 +16,6 @@ export const fetchBlogs = async () => {
 export const fetchBlogByID = async(id) => {
     try{
         const response = await axios.get(`${backendUrl}/blogs/${id}`);
-        console.log(response.data);
         return response.data;
     }catch (error){
         console.log("Failed to fetch blog by id:",error);
