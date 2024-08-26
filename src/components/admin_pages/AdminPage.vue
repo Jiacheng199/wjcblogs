@@ -19,7 +19,7 @@ export default {
         },
         //clear the session storage and redirect to the home page when logout
         logout() {
-            sessionStorage.removeItem('admin');
+            sessionStorage.clear();
             this.$router.push({ name: 'HomePage' });
         }
     }

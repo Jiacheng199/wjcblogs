@@ -5,6 +5,8 @@
             <h3>{{ blog.Author }}</h3>
             <button @click="deleteButton(blog.BlogID)">Delete</button>
         </div>
+        <button class="back-button" @click="goBack()">Back</button>
+
     </div>
 </template>
 
@@ -31,6 +33,13 @@ export default {
 
             }catch (error){
                 console.log(error);
+            }
+        },
+        goBack() {
+            if (this.$route.query.from) {
+                this.$router.push(this.$route.query.from);
+            } else {
+                this.$router.push('/AdminPage');
             }
         }
     }
@@ -85,5 +94,14 @@ button {
 
 button:hover {
     background-color: #2980b9;
+}
+
+.back-button {
+    margin-top: 20px;
+    background-color: #e74c3c;
+}
+
+.back-button:hover {
+    background-color: #c0392b;
 }
 </style>
