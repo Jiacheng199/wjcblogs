@@ -1,20 +1,23 @@
 <template>
-    <div class="blogs">
-        <div class="blog" v-for="blog in blogs" :key="blog.BlogID" @click="goToBlogDetail(blog.BlogID)">
-            <h2>{{ blog.Title }}</h2>
-            <h3>{{ blog.Author }}</h3>
+    <div class="flex justify-center  min-h-screen">
+      <div class="blogs max-w-6xl w-full p-8 mt-3 rounded-lg">
+        <div 
+          class="blog mb-12 cursor-pointer transition transform hover:scale-105 hover:shadow-lg" 
+          v-for="blog in blogs" 
+          :key="blog.BlogID" 
+          @click="goToBlogDetail(blog.BlogID)">
+          <h2 class="text-2xl font-bold mb-2">{{ blog.Title }}</h2>
+          <h3 class="text-xs font-bold text-gray-600">{{ blog.Author }}</h3>
         </div>
+      </div>
     </div>
-</template>
-
-
+  </template>
 
 <script>
 import { fetchBlogs } from '@/api/blogs/fetchBlogs';
 
 export default {
     name: 'MyBlogs',
-    //return blogs array for vue to render
     data() {
         return {
             blogs: []
@@ -22,7 +25,6 @@ export default {
     },
 
     methods: {
-        //route to blog deatil page
         goToBlogDetail(blogId) {
             this.$router.push({ name: 'BlogDetail', params: { id: blogId } });
         },
@@ -34,47 +36,5 @@ export default {
 }
 </script>
 
-<style scoped>
-.blogs {
-    border-radius: 10px;
-    background-color: #ffc10731;
-    padding: 2%;
-    width: 100%;
-    margin: 5% auto;
-    display: block;
-    text-align: left;
-}
+<style src="@/assets/output.css"></style>
 
-.blog {
-    margin-bottom: 50px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.blog:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 4px 15px rgba(223, 120, 120, 0.1); 
-}
-
-.blog:first-child {
-    margin-top: 0;
-}
-
-
-.blog:last-child {
-    margin-bottom: 0;
-}
-
-.blog h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.blog h3 {
-    font-size: 12px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-</style>
