@@ -5,6 +5,7 @@ const backendUrl = process.env.VUE_APP_BACKEND_URL;
 //get all blogs in db
 export const fetchBlogs = async () => {
     try {
+        console.log("backend url:", backendUrl)
         const response = await axios.get(`${backendUrl}/blogs`);
         return response.data;
     } catch (error) {

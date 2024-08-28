@@ -11,7 +11,7 @@ export default {
     methods: {
         redirectToCognito() {
             //callback url
-            const devRedirectUri = 'http://localhost:8080/callback';
+            const devRedirectUri = 'https://wjcblogs.com/callback';
 
             //encode to the format that OAuth will accept
             const encodedRedirectUri = encodeURIComponent(devRedirectUri);

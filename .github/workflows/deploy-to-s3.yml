@@ -22,7 +22,7 @@ jobs:
       run: yarn install
 
     - name: Build Vue.js app
-      run: yarn build
+      run: npm run build
       env:
         VUE_APP_BACKEND_URL: ${{ secrets.VUE_APP_BACKEND_URL }}
 

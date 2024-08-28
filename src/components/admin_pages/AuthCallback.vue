@@ -17,7 +17,7 @@ export default {
                 //call token exchange api to get the jwt token by providing code return from Conginto
                 const tokenResponse = await axios.post('https://64jr50gz41.execute-api.ap-southeast-2.amazonaws.com/admin/exchange_token', {
                     code: code,
-                    redirectUri: 'http://localhost:8080/callback'
+                    redirectUri: 'https://wjcblogs.com/callback'
                 });
 
                 console.log('success got token from Conginto');
