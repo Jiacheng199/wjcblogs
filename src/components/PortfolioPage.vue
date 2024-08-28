@@ -1,13 +1,15 @@
 <template>
-    <div class="portfolio-container">
-        <div class="projects">
-            <div v-for="project in projects" :key="project.id" class="project-card">
-                <a :href="project.projectURL" target="_blank" rel="noopener noreferrer"> 
-                    <img :src="project.imageURL" :alt="project.title" class="project-image">
-                </a>
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.description }}</p>
-            </div>
+    <div class="portfolio-container max-w-5xl mx-auto mt-24 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="projects grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a v-for="project in projects" :key="project.id" :href="project.projectURL" target="_blank"
+                rel="noopener noreferrer"
+                class="project-card bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                <img :src="project.imageURL" :alt="project.title" class="project-image w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">{{ project.title }}</h3>
+                    <p class="text-gray-600">{{ project.description }}</p>
+                </div>
+            </a>
         </div>
     </div>
 </template>
@@ -19,33 +21,44 @@ export default {
         return {
             projects: [
                 {
-                    id: 1,
-                    title: 'Find your study mate',
-                    description: 'Why study alone when you can study with your mate?',
-                    imageURL: '/imgs/StudyMate.png',  // Placeholder image
-                    projectURL: 'https://github.com/Jiacheng199/StudyMate'
-                },
+                    id: 5,
+                    title: 'Fact-Checking Climate Statements',
+                    description: 'A Natural Language Processing project focused on fact-checking statements related to climate change.',
+                    imageURL: '/imgs/NLPFactChecking.png',
+                    projectURL: 'https://github.com/Jiacheng199/FactChecker_NLP'
+                }
+                ,
                 {
-                    id: 2,
-                    title: 'TreeHole',
-                    description: 'No registration, anonymous, tell or write your secrets',
-                    imageURL: '/imgs/Treehole.png',  // Placeholder image
-                    projectURL: 'https://github.com/Jiacheng199/TreeHole'
-                },
+                    id: 6,
+                    title: 'Yinsh AI Agent',
+                    description: 'An AI agent developed for the abstract strategy board game Yinsh, utilizing a Q-learning algorithm to optimize gameplay through feature-based reinforcement learning.',
+                    imageURL: '/imgs/YinshAI.jpg',
+                    projectURL: 'https://github.com/Jiacheng199/Yinsh_Project/tree/main/yinsh-project'
+                }
+                ,
                 {
                     id: 3,
                     title: 'PetMeNow',
                     description: 'When you are on a business trip or unable to take care of your pet, let PetMeNow help you find a trustworthy temporary owner.',
-                    imageURL: '/imgs/PetMeNow.png',  // Placeholder image
-                    projectURL: 'https://github.com/COMP90018-2022-SM2-Group-T01-07-1'
+                    imageURL: '/imgs/PetMeNow.png',
+                    projectURL: 'https://github.com/WangJiaCheng1999/PetMeNow-frontend-master'
                 },
                 {
-                    id: 4,
-                    title: 'Exchange Everything',
-                    description:'Exchange Everything is a platform for people to exchange their unwanted items with others.',
-                    imageURL: '/imgs/ExchangeEverything.png',  // Placeholder image
-                    projectURL: 'https://github.com/Jiacheng199/Exchange'
+                    id: 7,
+                    title: 'Clinical Text Normalization and Mapping Platform',
+                    description: 'A project focused on applying Natural Language Processing techniques to analyze and extract insights from digital health data.',
+                    imageURL: '/imgs/DigitalHealthNLP.jpg',
+                    projectURL: 'https://github.com/Jiacheng199/Digital_Health_NLP'
+                },
+                {
+                    id: 8,
+                    title: 'Machine Learning for Authorship Attribution',
+                    description: 'A project focused on using statistical machine learning techniques to determine the authorship of academic papers by analyzing various textual features.',
+                    imageURL: '/imgs/AuthorshipAttribution.png',
+                    projectURL: 'https://github.com/Jiacheng199/SML_Project'
                 }
+
+
             ]
         }
     }
@@ -53,44 +66,5 @@ export default {
 </script>
 
 <style scoped>
-    .portfolio-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem;
-        text-align: center;
-    }
-
-    .projects {
-        margin-top: 10%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        justify-content: center;
-    }
-
-    .project-card {
-        width: 300px;
-        border: 1px solid #eaeaea;
-        border-radius: 5px;
-        overflow: hidden;
-        transition: transform 0.3s;
-    }
-
-    .project-card:hover {
-        transform: scale(1.05);
-    }
-
-    .project-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    h3 {
-        margin-top: 0.5rem;
-    }
-
-    p {
-        padding: 0 1rem 1rem;
-    }
+/* Tailwind CSS classes are applied directly in the template */
 </style>

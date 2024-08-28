@@ -1,21 +1,29 @@
 <template>
     <div>
-        <h1>Blog upload</h1>
-        <input type="text" v-model="title" placeholder="Title" class="title">
-        <input type="text" v-model="author" placeholder="Author" class="author">
-        <quill-editor v-model="editorHtml"></quill-editor>
-        <button @click="Upload">Upload</button>
-        <button @click="logout">Logout</button>
+        <div class="upload-container">
+            <h1>Blog upload</h1>
+            <input type="text" v-model="blog.Title" placeholder="Title" class="title">
+            <input type="text" v-model="blog.Author" placeholder="Author" class="author">
+            <div class="editor-container">
+                <quill-editor v-model="blog.Content"></quill-editor>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="upload-button" @click="upload">Upload</button>
+            <button class="back-button" @click="goBack()">Back</button>
+        </div>
     </div>
 </template>
+
 
 <script>
 import { quillEditor } from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'  // import styles
 import 'quill/dist/quill.bubble.css'
-import axios from 'axios';
-const backendUrl = process.env.VUE_APP_BACKEND_URL;
+import { uploadBlog } from '@/api/blogs/uploadBlog' //blog upload api
+import { v4 as uuidv4 } from 'uuid'
+
 export default {
     name: 'AdminPage',
     components: {
@@ -23,24 +31,31 @@ export default {
     },
     data() {
         return {
-            editorHtml: '',
-            title: '',
-            author: ''
+            blog: {
+                BlogID: '',
+                Title: '',
+                Author: '',
+                Content: '',
+            },
+            error: null,
         }
     },
     methods: {
-        //clear the session storage and redirect to the home page when logout
-        logout() {
-            sessionStorage.removeItem('admin');
-            this.$router.push({ name: 'HomePage' });
-        },
-        async Upload() {
+        async upload() {
             try {
-                const response = await axios.post(`${backendUrl}/uploadblog`, 
-                { title: this.title, author: this.author, content: this.editorHtml });
-                console.log(response.data);
+                //generate new id for new blog
+                this.blog.BlogID = uuidv4();
+                const response = await uploadBlog(this.blog);
+                console.log("Upload success:", response);
             } catch (error) {
-                console.error('Error uploading content:', error);
+                console.log("Unable to upload blog", error);
+            }
+        },
+        goBack() {
+            if (this.$route.query.from) {
+                this.$router.push(this.$route.query.from);
+            } else {
+                this.$router.push('/AdminPage');
             }
         }
     }
@@ -48,35 +63,58 @@ export default {
 </script>
 
 <style scoped>
+.upload-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 h1 {
     text-align: center;
     color: brown;
 }
 
-.title {
-    width: 50%;
-    height: 20px;
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 2%;
-}
-
+.title,
 .author {
-    width: 50%;
-    height: 20px;
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 2%;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 15px;
+    padding: 5px;
 }
 
-button {
-    width: 20%;
-    height: 25px;
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 2%;
+.editor-container {
+    margin-bottom: 20px;
 }
 
+.quill-editor {
+    height: 40vh;
+    min-height: 300px;
+}
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
 
+.upload-button,
+.back-button {
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.upload-button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+}
+
+.back-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+}
 </style>

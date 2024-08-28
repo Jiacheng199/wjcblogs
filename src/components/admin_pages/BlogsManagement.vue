@@ -1,73 +1,107 @@
 <template>
     <div class="blogs">
-        <div class="blog" v-for="blog in blogs" :key="blog.blog_id">
-            <h1>{{ blog.title }}</h1>
-            <h3>{{ blog.author }}</h3>
-            <button @click="deleteBlog(blog.blog_id)">Delete</button>
+        <div class="blog" v-for="blog in blogs" :key="blog.BlogID">
+            <h1>{{ blog.Title }}</h1>
+            <h3>{{ blog.Author }}</h3>
+            <button @click="deleteButton(blog.BlogID)">Delete</button>
         </div>
+        <button class="back-button" @click="goBack()">Back</button>
+
     </div>
 </template>
 
 <script>
-import axios from 'axios';
-const backendUrl = process.env.VUE_APP_BACKEND_URL;
+import { fetchBlogs } from '@/api/blogs/fetchBlogs';
+import { deleteBlog } from '@/api/blogs/deleteBlog';
 
 export default {
-    name: 'MyBlogs',
+    name: 'BlogsManagement',
     data() {
         return {
             blogs: []
         }
     },
-    created() {
-        this.fetchBlogs();
+    async created() {
+        this.blogs = await fetchBlogs();
     },
     methods: {
+        async deleteButton(id){
+            try{
+                const response = await deleteBlog(id);
+                console.log(response);
+                this.blogs = this.blogs.filter(blog => blog.BlogID !== id);
 
-        //fetch blogs from backend
-        fetchBlogs() {
-            axios.get(`${backendUrl}/readblogs`)
-            .then(response => {
-                this.blogs = response.data;
-            })
-            .catch(error => {
-                console.error("Failed to fetch blogs:", error);
-            });
+            }catch (error){
+                console.log(error);
+            }
         },
-
-
-        //delete blog by id
-        deleteBlog(blogId) {
-            axios.delete(`${backendUrl}/deleteblog/${blogId}`)
-            .then(response => {
-                console.log(response.data);
-                this.fetchBlogs();
-            })
-            .catch(error => {
-                console.error("Failed to delete blog:", error);
-            });
+        goBack() {
+            if (this.$route.query.from) {
+                this.$router.push(this.$route.query.from);
+            } else {
+                this.$router.push('/AdminPage');
+            }
         }
-
     }
+
 }
 </script>
 
 <style scoped>
 .blogs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 20px;
     border-radius: 10px;
-    background-color: #ffc10731;
-    padding: 2%;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ecf0f1;
+}
+
+.blog {
+    border-bottom: 1px solid #7f8c8d;
+    padding: 10px;
     width: 100%;
-    margin: 5% auto;
-    display: block;
-    text-align: left;
+}
+
+.blog:last-child {
+    border-bottom: none;
+}
+
+.blog h1 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.blog h3 {
+    font-size: 1em;
+    color: #bdc3c7;
 }
 
 button {
-    width: 20%;
-    height: 25px;
-    margin-left: 60%;
-    display: block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+button:hover {
+    background-color: #2980b9;
+}
+
+.back-button {
+    margin-top: 20px;
+    background-color: #e74c3c;
+}
+
+.back-button:hover {
+    background-color: #c0392b;
+}
 </style>

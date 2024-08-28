@@ -1,39 +1,26 @@
 <template>
     <div class="admin-container">
-        <h1>Input your admin password</h1>
-        <input type="password" v-model="password" />
-        <button @click="login">Login</button>
-        <p v-if="errorMsg" class="error-message">{{ errorMsg }}</p>
+        <h1>Admin Login</h1>
+        <button @click="redirectToCognito">Login with Cognito</button>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
-const backendUrl = process.env.VUE_APP_BACKEND_URL;
-
 export default {
     name: 'AdminLogin',
-    data() {
-        return{
-            password:'',
-            errorMsg:''
-        }
-    },
-    methods:{
-        async login(){
-            try {
-                const response = await axios.post(`${backendUrl}/adminlogin`, { password: this.password });
-                console.log(response.data);
-                if (response.data.success) {
-                    sessionStorage.setItem('admin', true);
-                    this.$router.push({ name: 'AdminPage' });
-                } else {
-                    //alert the user that the password is incorrect
-                    this.errorMsg = 'Incorrect password. Please try again.';
-                }
-            } catch (error) {
-                this.errorMsg = 'An error occurred. Please try again later.';
-            }
+    methods: {
+        redirectToCognito() {
+            //callback url
+            const devRedirectUri = 'http://localhost:8080/callback';
+
+            //encode to the format that OAuth will accept
+            const encodedRedirectUri = encodeURIComponent(devRedirectUri);
+
+            //AWS Cognito's admin login page for wjcblogs' admin user 
+            const url = `https://auth.wjcblogs.com/oauth2/authorize?client_id=5p7d09j06sshpk7f3ge418kk1n&response_type=code&scope=email+openid+phone&redirect_uri=${encodedRedirectUri}`;
+            
+            // Redirect user to Cognito Hosted UI
+            window.location.href = url;
         }
     }
 }
@@ -54,14 +41,6 @@ export default {
     margin-bottom: 5%;
 }
 
-.admin-container input {
-    width: 50%;
-    height: 50px;
-    font-size: 1.5rem;
-    padding: 0 10px;
-    margin-bottom: 5%;
-}
-
 .admin-container button {
     width: 50%;
     height: 50px;
@@ -73,10 +52,4 @@ export default {
     border-radius: 20px;
     cursor: pointer;
 }
-
-.error-message {
-    color: red;
-    margin-top: 20px;
-}
-    
 </style>
