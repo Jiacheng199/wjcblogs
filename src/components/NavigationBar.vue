@@ -1,71 +1,52 @@
-<!-- src/components/NavigationBar -->
 <template>
     <!-- NavigationBar -->
-    <nav>
-        <div v-show="showMenu" class="menu">
-            <router-link to="/">Home</router-link>
-            <router-link to="/AboutMe">AboutMe</router-link>
-            <router-link to="/PortfolioPage">Portfolio</router-link>
-            <router-link to="/MyBlogs">MyBlogs</router-link>
-        </div>
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white shadow rounded-full px-8 py-2">
+      <div v-show="showMenu" class="flex space-x-8 justify-center items-center">
+        <router-link
+          to="/"
+          class="flex items-center space-x-2 text-gray-700 hover:text-black transition-colors duration-300 font-medium"
+          active-class="text-black font-bold border-b-2 border-black"
+          exact
+        >
+          <i class="fas fa-home"></i>
+        </router-link>
+        <router-link
+          to="/PortfolioPage"
+          class="text-gray-700 hover:text-black transition-colors duration-300 font-semibold"
+          active-class="text-black font-bold border-b-2 border-black"
+        >
+          Projects
+        </router-link>
+        <router-link
+          to="/MyBlogs"
+          class="text-gray-700 hover:text-black transition-colors duration-300 font-semibold"
+          active-class="text-black font-bold border-b-2 border-black"
+        >
+          Blogs
+        </router-link>
+        <router-link
+          to="/AboutMe"
+          class="text-gray-700 hover:text-black transition-colors duration-300 font-semibold"
+          active-class="text-black font-bold border-b-2 border-black"
+        >
+          About
+        </router-link>
+      </div>
     </nav>
-</template>
-
-<script>
-export default {
-    name: 'NavigationBar',
-
+  </template>
+  
+  <script>
+  export default {
+    name: "NavigationBar",
     data() {
-        return {
-            showMenu: true,
-        }
+      return {
+        showMenu: true, // Controls the visibility of the menu
+      };
     },
-    methods: {
-        toggleMenu() {
-            console.log("toggleMenu");
-            this.showMenu = !this.showMenu;
-        }
-    }
-}
-</script>
-
-<style scoped>
-nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: #28887b;
-    margin: 0 60px;
-    font-size: 35px;
-    font-weight: 500;
-}
-
-nav :hover {
-    font-weight: 600;
-}
-
-
-.menu {
-    display: flex;
-    justify-content: center;
-}
-
-@media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    nav a {
-        margin: 10px 0;
-        font-size: 25px;
-    }
-}
-
-</style>
-
+  };
+  </script>
+  
+  <style scoped>
+  /* Tailwind CSS classes are applied directly in the template */
+  </style>
+  
