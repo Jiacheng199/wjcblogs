@@ -37,4 +37,4 @@ export default {
 }
 </script>
 
-<style src="@/assets/output.css"></style>
+<style scoped></style>
